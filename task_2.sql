@@ -3,7 +3,7 @@ USE alx_book_store;
 -- Create Authors table
 CREATE TABLE IF NOT EXISTS Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    author_name VARCHAR(255) NOT NULL,
     bio TEXT
 );
 
@@ -20,11 +20,9 @@ CREATE TABLE IF NOT EXISTS Books (
 -- Create Customers table
 CREATE TABLE IF NOT EXISTS Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
+    customer_name VARCHAR(215)
     email VARCHAR(215) UNIQUE NOT NULL,
     address TEXT,
-    phone_no VARCHAR(15)
 );
 
 -- Create Orders table
@@ -40,7 +38,7 @@ CREATE TABLE IF NOT EXISTS Order_Details (
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     book_id INT,
-    quantity INT,
+    quantity DOUBLE,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
